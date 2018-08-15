@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-wechat-websocket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangjingbo111/nodejs-wechat-websocket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yangjingbo111/nodejs-wechat-websocket/issues"
+  },
+  "homepage": "https://github.com/yangjingbo111/nodejs-wechat-websocket#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.8",
+    "websocket": "^1.0.26"
+  }
+}
