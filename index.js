@@ -3,6 +3,7 @@ var home = require('./routers/home');
 var chats = require('./routers/chats');
 var repos = require('./routers/repos');
 var startWebsocket = require('./websocket')
+var apiWeather = require('./routers/api/weather');
 
 // create express app
 var app = express();
@@ -19,6 +20,7 @@ app.set('view engine', 'ejs');
 app.use('/', home);
 app.use('/chats', chats);
 app.use('/repos', repos);
+app.use('/api/weather', apiWeather);
 
 var server = app.listen(3000, function() {
   console.log("server is listening on port: 3000");
