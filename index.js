@@ -6,6 +6,13 @@ var startWebsocket = require('./websocket')
 var apiWeather = require('./routers/api/weather');
 var apiLogin = require('./routers/api/login');
 
+// test mongodb
+// const mongoose = require('mongoose');
+//
+// mongoose.connect('mongodb://localhost:27017/mydb', {useNewUrlParser: true});
+
+
+
 // create express app
 var app = express();
 
