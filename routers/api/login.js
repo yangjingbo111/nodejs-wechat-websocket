@@ -25,32 +25,42 @@ var jsonParser = bodyParser.json();
 //
 // });
 
+// deal with user login
 router.post('/', jsonParser, function(req, res){
     console.log(req.body);
 
-    User.find({phone: req.body.phone}, function(err, data){
+    User.find({phone_num: req.body.phone_num,pwd: req.body.pwd,}, function(err, data){
       console.log(data.length);
       if (data.length > 0) {
-        res.send('该用户已存在');
+        res.json({
+          ret_code: 10002 // login ok
+        });
       }else {
-        res.send('ok');
-        User.create(req.body)
-          .then(function(data){
-            res.json(data);
-          });
+        res.json({
+          ret_code: 10001 // user not exist
+        });
       }
       // res.json(data);
     });
-
-    // User.create(req.body)
-    //   .then(function(data){
-    //     res.json(data);
-    //   });
-
-    // User.create(req.body).then(function(data){
-    //   res.json(data);
+});
+router.post('/reset-pwd', jsonParser, function(req, res){
+    console.log(req.body);
+    res.json({
+      code: 'to be finished'
+    });
+    // User.find({phone_num: req.body.phone}, function(err, data){
+    //   console.log(data.length);
+    //   if (data.length > 0) {
+    //     res.send('该用户已存在');
+    //   }else {
+    //     res.send('ok');
+    //     User.create(req.body)
+    //       .then(function(data){
+    //         res.json(data);
+    //       });
+    //   }
+    //   // res.json(data);
     // });
-
 });
 
 module.exports = router;

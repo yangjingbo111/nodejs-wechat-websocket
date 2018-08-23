@@ -5,7 +5,7 @@ var chats = require('./routers/chats');
 var repos = require('./routers/repos');
 var startWebsocket = require('./websocket')
 var apiWeather = require('./routers/api/weather');
-// var apiLogin = require('./routers/api/login');
+var apiLogin = require('./routers/api/login');
 var apiRegister = require('./routers/api/register');
 
 const SERVER_PORT = 4000;
@@ -37,7 +37,7 @@ app.use('/chats', chats);
 app.use('/repos', repos);
 app.use('/api/weather', apiWeather);
 app.use('/api/register', apiRegister);
-// app.use('/api/login', apiLogin);
+app.use('/api/login', apiLogin);
 
 var server = app.listen(SERVER_PORT, function() {
   console.log(`server is listening on port: ${SERVER_PORT}`);
