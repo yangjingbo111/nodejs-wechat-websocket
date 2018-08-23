@@ -1,16 +1,8 @@
 var express = require('express');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const User = require('../../models/user');
 
-// mongoose.connect('mongodb://localhost:27017/mydb', {useNewUrlParser: true});
-//
-// var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function() {
-//   // we're connected!
-//   console.log("db connected");
-// });
+
 
 var router = express.Router();
 
@@ -30,10 +22,12 @@ router.post('/', jsonParser, function(req, res){
 
     User.find({phone: req.body.phone}, function(err, data){
       console.log(data.length);
-      if (data.length > 0) {
-        res.send('该用户已存在');
+      if (data.length > 0) {  // user existed
+        res.json({
+          msg: 'user existed'
+        });
       }else {
-        res.send('ok');
+        // res.send('ok');
         User.create(req.body)
           .then(function(data){
             res.json(data);
@@ -42,10 +36,7 @@ router.post('/', jsonParser, function(req, res){
       // res.json(data);
     });
 
-    // User.create(req.body)
-    //   .then(function(data){
-    //     res.json(data);
-    //   });
+
 
     // User.create(req.body).then(function(data){
     //   res.json(data);
