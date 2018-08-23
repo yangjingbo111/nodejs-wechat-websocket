@@ -20,7 +20,7 @@ var jsonParser = bodyParser.json();
 router.post('/', jsonParser, function(req, res){
     console.log(req.body);
 
-    User.find({phone: req.body.phone_num}, function(err, data){
+    User.find({phone_num: req.body.phone_num}, function(err, data){
       console.log(data.length);
       if (data.length > 0) {  // user existed
         res.json({
