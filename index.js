@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 var home = require('./routers/home');
 var chats = require('./routers/chats');
 var repos = require('./routers/repos');
+var upload = require('./routers/upload');
 var startWebsocket = require('./websocket')
 var apiWeather = require('./routers/api/weather');
 var apiLogin = require('./routers/api/login');
@@ -35,6 +36,7 @@ app.set('view engine', 'ejs');
 app.use('/', home);
 app.use('/chats', chats);
 app.use('/repos', repos);
+app.use('/upload', upload);
 app.use('/api/weather', apiWeather);
 app.use('/api/register', apiRegister);
 app.use('/api/login', apiLogin);
